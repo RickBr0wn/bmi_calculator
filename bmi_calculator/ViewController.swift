@@ -21,8 +21,20 @@ class ViewController: UIViewController {
   
   @IBAction func calculateButtonPress(_ sender: Any) {
     // declare weight & height variables using the values from the textInputs
-    let weight = Double(weightInput.text!)!
-    let height = Double(heightInput.text!)!
+    var weight: Double = 0
+    var height: Double = 0
+    
+    if let weightText = weightInput.text {
+      if let weightDouble = Double(weightText) {
+        weight = weightDouble
+      }
+    }
+    
+    if let heightText = heightInput.text {
+      if let heightDouble = Double(heightText) {
+        height = heightDouble
+      }
+    }
     
     // calculate the bmiScore
     let bmi = weight/(height * height)
